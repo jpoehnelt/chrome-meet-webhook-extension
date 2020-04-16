@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Webhooks</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row p-3">
+
+        <form>
+          <div class="form-group">
+            <label for="activeWebhookUrl">Webhook URL: Input Changed to Active</label>
+            <input type="text" class="form-control" id="activeWebhookUrl" aria-describedby="activeWebhookUrlHelp">
+            <small id="activeWebhookUrlHelp" class="form-text text-muted">Sends a webhook to this url when input changes to active.</small>
+          </div>
+          <div class="form-group">
+            <label for="inactiveWebhookUrl">Webhook URL: Input Changed to Inactive</label>
+            <input type="text" class="form-control" id="inactiveWebhookUrl" aria-describedby="inactiveWebhookUrlHelp">
+            <small id="inactiveWebhookUrlHelp" class="form-text text-muted">Sends a webhook to this url when input changes to active.</small>
+          </div>
+        </form>
+        <button id="save" class="btn btn-primary">Save</button>
+
+      </div>
+      <div class="row p-3">
+        <div class="alert alert-success d-none" id="status" role="alert">Options saved!</div>
+      </div>
+    </div>
+    <script src="../dist/options.js"></script>
+  </body>
+</html>
