@@ -1,0 +1,20 @@
+branches:
+  - master
+plugins:
+  - "@semantic-release/commit-analyzer"
+  - "@semantic-release/release-notes-generator"
+  - - "@google/semantic-release-replace-plugin"
+    - replacements:
+        - files:
+            - "manifest.json"
+          from: "\"version\": \".*\""
+          to: "\"version\": \"${nextRelease.version}\""
+  - - "@semantic-release/git"
+    - assets:
+        - "manifest.json"
+  - - "@semantic-release/github"
+    assets:
+    - path: "dist/chrome-meet-webhook-extension.zip"
+      label: "Extension Zip"
+options:
+  debug: true
