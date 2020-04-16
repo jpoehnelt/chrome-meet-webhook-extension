@@ -12,10 +12,10 @@ jobs:
       # - run: npm test
       - run: npm run build
       - run: npm run package
-    - uses: trmcnvn/chrome-addon@v2
-      with:
-        extension: cjgljcadhebolmnkpfankbafljblnepj
-        zip: dist/chrome-meet-webhook-extension.zip
-        client-id: ${{ secrets.CHROME_WEBSTORE__CLIENT_ID }}
-        client-secret: ${{ secrets.CHROME_WEBSTORE__CLIENT_SECRET }}
-        refresh-token: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
+      - uses: trmcnvn/chrome-addon@v2
+        with:
+          extension: cjgljcadhebolmnkpfankbafljblnepj
+          zip: dist/chrome-meet-webhook-extension.zip
+          client-id: ${{ secrets.CHROME_WEBSTORE__CLIENT_ID }}
+          client-secret: ${{ secrets.CHROME_WEBSTORE__CLIENT_SECRET }}
+          refresh-token: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
