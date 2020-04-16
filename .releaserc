@@ -9,6 +9,8 @@ plugins:
             - "manifest.json"
           from: "\"version\": \".*\""
           to: "\"version\": \"${nextRelease.version}\""
+  - - "@semantic-release/exec"
+    - prepareCmd: 'npm run package'
   - - "@semantic-release/git"
     - assets:
       - "manifest.json"

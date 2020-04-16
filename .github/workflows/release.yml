@@ -25,13 +25,13 @@ jobs:
       - run: npm i
       # - run: npm test
       - run: npm run build
-      - run: npm run package
       - name: Release
         uses: cycjimmy/semantic-release-action@v2
         with:
           extra_plugins: |
             "@semantic-release/commit-analyzer"
             "@semantic-release/release-notes-generator"
+            "@semantic-release/exec"
             "@google/semantic-release-replace-plugin"
             "@semantic-release/git
             "@semantic-release/github
