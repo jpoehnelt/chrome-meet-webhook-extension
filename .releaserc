@@ -11,10 +11,10 @@ plugins:
           to: "\"version\": \"${nextRelease.version}\""
   - - "@semantic-release/git"
     - assets:
-        - "manifest.json"
+      - "manifest.json"
   - - "@semantic-release/github"
-    assets:
-    - path: "dist/chrome-meet-webhook-extension.zip"
-      label: "Extension Zip"
+    - assets:
+      - path: "dist/chrome-meet-webhook-extension.zip"
+        label: "Extension Zip"
 options:
   debug: true
