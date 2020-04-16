@@ -12,16 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# name: Build
-# on: [push, pull_request]
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - run: npm i
-#       - run: npm run lint
-#       - run: npm test
-#       - uses: codecov/codecov-action@v1
-#         with:
-#           fail_ci_if_error: true
+name: Build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm i
+      # - run: npm test
+      - run: npm run build
+      - run: npm run package
+      - uses: codecov/codecov-action@v1

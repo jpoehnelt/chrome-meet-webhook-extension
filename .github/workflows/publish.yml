@@ -1,13 +1,15 @@
-name: publish
+name: Publish
 on:
   - tag
-job:
-  steps:
+jobs:
+  build:
     runs-on: ubuntu-latest
-    - uses: actions/checkout@v2
-    - run: npm i
-    - run: npm run build
-    - run: npm run package
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm i
+      # - run: npm test
+      - run: npm run build
+      - run: npm run package
     # - uses: trmcnvn/chrome-addon@v3
     #   with:
     #     extension: chrome-meet-webhook-extension
