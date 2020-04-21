@@ -7,3 +7,7 @@
 ## Description
 
 Trigger a webhook when the microphone or camera is turned on or off in a Google Meet.
+
+## Installation
+
+https://chrome.google.com/webstore/detail/cjgljcadhebolmnkpfankbafljblnepj
