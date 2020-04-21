@@ -20,5 +20,6 @@
     "32": "public/icon32.png",
     "48": "public/icon48.png",
     "128": "public/icon128.png"
-  }
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqUjdrruT31Q+oyoVVACNgJI8oTNi6jM1xQ45I8gXRbzARVgo8EH/bTk4eCNd7dk5YFDfHZhqdYqYc4Pn4B71ji9Ah9MrkIfRycx/HX5zdC5JyAIhI7HV88mz1tsVnT77r7VW8LgWga2nNAquLl6izLF5R8EqxD9D25uFdwz21KSgvun3CodZCZm27er4NCLacAtXBTrqUHiHEokn/Uv84M/T2lLCcxZm093k59Uf3AeEahjGAq5CQPNJHdEwQ7OygwqnilKDOUulGjmOyTtaOi0ormBIj3ELgAHUxhEgDPI/YCQjByGn3Xnj5HaSvoOo6kVUlBGYJmUNBUiLGaT/kwIDAQAB"
 }
