@@ -18,6 +18,6 @@ jobs:
         with:
           extension: cjgljcadhebolmnkpfankbafljblnepj
           zip: dist/chrome-meet-webhook-extension.zip
-          client-id: ${{ secrets.CHROME_WEBSTORE__CLIENT_ID }}
-          client-secret: ${{ secrets.CHROME_WEBSTORE__CLIENT_SECRET }}
+          client-id: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
+          client-secret: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
           refresh-token: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
