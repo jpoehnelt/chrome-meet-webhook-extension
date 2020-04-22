@@ -14,6 +14,7 @@ export function send(state: State, webhook: Webhook): Promise<Response> {
   return fetch(webhook.url, {
     method: "POST",
     body: renderBody(state),
+    mode: "no-cors",
     headers: {
       "Content-Type": "application/json",
     },
