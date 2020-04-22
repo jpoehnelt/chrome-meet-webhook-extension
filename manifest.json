@@ -1,6 +1,6 @@
 {
   "name": "Google Meet Webhooks",
-  "version": "1.0.11",
+  "version": "1.1.0",
   "description": "Trigger a webhook when the microphone or camera is turned on or off in a Google Meet.",
   "manifest_version": 2,
   "content_scripts": [
