@@ -21,7 +21,7 @@
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "format": "prettier *.json *.js src/* e2e/* examples/* --write",
+    "format": "prettier *.json *.js src/* --write",
     "lint": "eslint src/*",
     "build": "rollup -c",
     "test": "jest src/*",
@@ -49,5 +49,6 @@
     "selenium-webdriver": "^4.0.0-alpha.7",
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
-  }
+  },
+  "dependencies": {}
 }

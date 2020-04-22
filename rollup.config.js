@@ -23,16 +23,10 @@ const babelOptions = {
   extensions: [".js", ".ts"],
 };
 
-
 export default [
   {
     input: "src/index.ts",
-    plugins: [
-      typescript(),
-      commonjs(),
-      babel(babelOptions),
-      terser(),
-    ],
+    plugins: [typescript(), commonjs(), babel(babelOptions)],
     output: {
       file: "dist/index.js",
       format: "iife",
@@ -40,12 +34,7 @@ export default [
   },
   {
     input: "src/options.ts",
-    plugins: [
-      typescript(),
-      commonjs(),
-      babel(babelOptions),
-      terser(),
-    ],
+    plugins: [typescript(), commonjs(), babel(babelOptions), terser()],
     output: {
       file: "dist/options.js",
       format: "iife",

@@ -1,13 +1,11 @@
 {
   "compilerOptions": {
-    "declaration": false,
-    "declarationDir": "./dist",
     "noImplicitAny": true,
     "outDir": "./dist",
     "sourceMap": false,
     "esModuleInterop": true,
     "lib": ["DOM", "ESNext"],
-    "types" : ["chrome"]
+    "types": ["chrome"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*"]
 }

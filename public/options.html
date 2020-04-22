@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Webhooks</title>
+    <title>Google Meet Webhooks Extension</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   </head>
   <body>
-    <div class="container">
-      <div class="row p-3">
-
-        <form>
-          <div class="form-group">
-            <label for="activeWebhookUrl">Webhook URL: Input Changed to Active</label>
-            <input type="text" class="form-control" id="activeWebhookUrl" aria-describedby="activeWebhookUrlHelp">
-            <small id="activeWebhookUrlHelp" class="form-text text-muted">Sends a webhook to this url when input(microphone or video) changes to active.</small>
-          </div>
-          <div class="form-group">
-            <label for="inactiveWebhookUrl">Webhook URL: Input Changed to Inactive</label>
-            <input type="text" class="form-control" id="inactiveWebhookUrl" aria-describedby="inactiveWebhookUrlHelp">
-            <small id="inactiveWebhookUrlHelp" class="form-text text-muted">Sends a webhook to this url when input(microphone or video) changes to inactive.</small>
-          </div>
-        </form>
-        <button id="save" class="btn btn-primary">Save</button>
-
+    <div class="container py-3">
+      <div class="row pb-3">
+        <div class="col col-2">
+          <img src="icon128.png" class="rounded mx-auto d-block" alt="...">
+        </div>
+        <div class="col">
+          <h1 class="display-4">Google Meet Webhooks Extension</h1>
+          <p class="lead">Trigger a webhook when the microphone or camera is turned on or off in Google Meet.</p>
+        </div>
       </div>
-      <div class="row p-3">
-        <div class="alert alert-success d-none" id="status" role="alert">Options saved!</div>
-      </div>
+      <h3 class="my-3">Example Payload</h3>
+      <p>Each webhook will be called with <code>POST</code> having <code>Content-Type: application/json</code>.</p>
+      <pre id="payload" class="bg-dark text-light p-3"></pre>
+      <h3>Webhook Configuration</h3>
+
+      <form id="form"></form>
     </div>
     <script src="../dist/options.js"></script>
   </body>

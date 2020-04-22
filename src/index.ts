@@ -1,5 +1,9 @@
-import { run } from "./main";
+import { Runner } from "./runner";
 
-/* istanbul ignore next */
 console.log("[chrome-meet-webhook-extension] starting");
-run(null);
+
+const runner = new Runner({
+  delay: 1000,
+});
+
+runner.start();
