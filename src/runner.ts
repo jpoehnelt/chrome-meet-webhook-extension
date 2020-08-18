@@ -114,7 +114,7 @@ export class Runner implements RunnerOptions {
       this.send("input.change");
 
       if (
-        this.current.input.camera === "active" &&
+        this.current.input.camera === "active" ||
         this.current.input.microphone === "active"
       ) {
         this.send("input.active");
