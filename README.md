@@ -10,4 +10,4 @@ Trigger a webhook when the microphone or camera is turned on or off in a Google 
 
 ## Installation
 
-https://chrome.google.com/webstore/detail/cjgljcadhebolmnkpfankbafljblnepj
+https://chrome.google.com/webstore/detail/google-meet-webhooks/lhkkhfmbgiaaagbeoblnjiklilmaeddj?hl=en&authuser=0
