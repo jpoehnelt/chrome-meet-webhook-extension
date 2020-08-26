@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm i
-      # - run: npm test
+      - run: npm test
       - run: npm run build
       - run: npm run package
       - uses: trmcnvn/chrome-addon@v2
