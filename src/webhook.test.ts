@@ -8,7 +8,8 @@ declare global {
 }
 
 it("should interpolate url given state", () => {
-  const url = "https://foo.bar.com?active=${input.camera ? true : false}";
+  const url =
+    "https://foo.bar.com?active=${input.camera === 'active' ? true : false}";
   expect(
     interpolate(url, {
       id: "foo",

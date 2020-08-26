@@ -53,7 +53,7 @@ export function getConfig(): Promise<Config> {
             config.webhooks[key].method = parts[0].toUpperCase();
           }
         }
-        
+
         resolve(config);
       }
     );

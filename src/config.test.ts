@@ -12,7 +12,8 @@ it("should parse method correctloy", async () => {
   const config = {
     webhooks: {
       "input.change": {
-        url: "GET https://foo.bar.com?active=${input.camera ? true : false}",
+        url:
+          "GET https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
       },
       change: { url: "POST https://foo.bar.com" },
       "input.camera.active": { url: "https://foo.bar.com" },
@@ -50,7 +51,7 @@ it("should parse method correctloy", async () => {
               },
               "input.change": Object {
                 "method": "GET",
-                "url": "https://foo.bar.com?active=\${input.camera ? true : false}",
+                "url": "https://foo.bar.com?active=\${input.camera === 'active' ? true : false}",
               },
               "input.inactive": Object {
                 "url": "",

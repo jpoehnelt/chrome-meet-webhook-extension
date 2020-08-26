@@ -2,25 +2,61 @@
 <html>
   <head>
     <title>Google Meet Webhooks Extension</title>
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <div class="container py-3">
       <div class="row pb-3">
         <div class="col col-2">
-          <img src="icon128.png" class="rounded mx-auto d-block" alt="...">
+          <img src="icon128.png" class="rounded mx-auto d-block" alt="..." />
         </div>
         <div class="col">
           <h1 class="display-4">Google Meet Webhooks Extension</h1>
-          <p class="lead">Trigger a webhook when the microphone or camera is turned on or off in Google Meet.</p>
+          <p class="lead">
+            Trigger a webhook when the microphone or camera is turned on or off
+            in Google Meet.
+          </p>
         </div>
       </div>
-      <h3 class="my-3">Example Payload</h3>
-      <p>Each webhook will be called with <code>POST</code> having <code>Content-Type: application/json</code>.</p>
+      <h3 class="my-3">Webhook Method and Body</h3>
+      <p>
+        The default webhook HTTP call is a <code>POST</code> having
+        <code>Content-Type: application/json</code>. This can be overriden by
+        prefixing the URL with the method such as
+        <code>GET https://foo.bar.com</code>
+      </p>
+      <p>The body of POST requests matches the following:</p>
       <pre id="payload" class="bg-dark text-light p-3"></pre>
+      <h3>Webhook URL Interpolation</h3>
+      <p>It is possible to customize the webhook url from the current state.</p>
+      <p>
+        For example,
+        <code
+          >https://foo.bar.com?active=${input.camera === 'active' ? true :
+          false}</code
+        >
+        becomes <code>https://foo.bar.com?active=true</code> if the
+        <code>input.camera</code> is <code>active</code>.
+      </p>
+      <p>The available variables match the JSON state from above.</p>
+
       <h3>Webhook Configuration</h3>
 
       <form id="form"></form>
+
+      <div class="alert alert-info" role="alert">
+        There is no event for the end of the meeting or browser and tab closure.
+        This
+        <a
+          href="https://github.com/jpoehnelt/chrome-meet-webhook-extension/issues/9"
+          target="_blank"
+          >issue is being tracked</a
+        >.
+      </div>
     </div>
     <script src="../dist/options.js"></script>
   </body>
