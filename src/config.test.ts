@@ -8,14 +8,17 @@ declare global {
   }
 }
 
-it("should parse method correctloy", async () => {
+it("should parse method correctly", async () => {
   const config = {
     webhooks: {
       "input.change": {
         url:
-          "GET https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
+          "https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
       },
-      change: { url: "POST https://foo.bar.com" },
+      change: {
+        url:
+          "POST https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
+      },
       "input.camera.active": { url: "https://foo.bar.com" },
     },
   } as Partial<Config>;
@@ -35,7 +38,7 @@ it("should parse method correctloy", async () => {
             "webhooks": Object {
               "change": Object {
                 "method": "POST",
-                "url": "https://foo.bar.com",
+                "url": "https://foo.bar.com?active=\${input.camera === 'active' ? true : false}",
               },
               "input.active": Object {
                 "url": "",
@@ -50,7 +53,6 @@ it("should parse method correctloy", async () => {
                 "url": "",
               },
               "input.change": Object {
-                "method": "GET",
                 "url": "https://foo.bar.com?active=\${input.camera === 'active' ? true : false}",
               },
               "input.inactive": Object {
