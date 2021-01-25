@@ -1,4 +1,4 @@
-import { State } from "./runner";
+import { State, InputState } from "./runner";
 
 export interface Webhook {
   url: string;
@@ -18,6 +18,10 @@ export function renderBody(state: State): string {
   return JSON.stringify(state);
 }
 
+export function renderUrlEncoded(state: State): string {
+  return Object.entries(state.input).map((k, i) => `${k[0]}=${k[1]}`).join('&')
+}
+
 export function send(state: State, webhook: Webhook): Promise<Response> {
   let options: RequestInit;
 
@@ -34,10 +38,10 @@ export function send(state: State, webhook: Webhook): Promise<Response> {
     default:
       options = {
         method: "POST",
-        body: renderBody(state),
+        body: webhook.cors ? renderBody(state) : renderUrlEncoded(state),
         mode: webhook.cors ? "cors" : "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": webhook.cors ? "application/json" : "application/x-www-form-urlencoded",
         },
       };
   }
