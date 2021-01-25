@@ -24,7 +24,9 @@ function saveOptions(): void {
 
   EVENTS.forEach((e: string) => {
     // @ts-ignore-next-line
-    config.webhooks[e].url = getHtmlInputElement(e).value;
+    config.webhooks[e].url = getHtmlInputElement(`${e}.url`).value;
+    // @ts-ignore-next-line
+    config.webhooks[e].cors = getHtmlInputElement(`${e}.cors`).checked;
   });
 
   setConfig(config);
@@ -35,7 +37,9 @@ async function restoreOptions(): Promise<void> {
 
   EVENTS.forEach((e) => {
     // @ts-ignore-next-line
-    getHtmlInputElement(e).value = config.webhooks[e].url;
+    getHtmlInputElement(`${e}.url`).value = config.webhooks[e].url;
+    // @ts-ignore-next-line
+    getHtmlInputElement(`${e}.cors`).checked = config.webhooks[e].cors;
   });
 }
 
@@ -46,13 +50,18 @@ EVENTS.forEach((e) => {
     "beforeend",
     `
     <div class="form-group">
-      <label for="${e}">Event: <code>${e}</code></label>
-      <input type="url" class="form-control" id="${e}" placeholder="Webhook Url">
+      <label for="${e}.url">Event: <code>${e}</code></label>
+      <input type="url" class="form-control" id="${e}.url" placeholder="Webhook Url">
       <small id="${e}.help" class="form-text text-muted">${description}</small>
-
+      <label for="${e}.cors">CORS</label>
+      <input type="checkbox" class="form-control" id="${e}.cors" placeholder="CORS">
     </div>`
   );
-  document.getElementById(e).addEventListener("change", () => {
+  document.getElementById(`${e}.url`).addEventListener("change", () => {
+    saveOptions();
+  });
+
+  document.getElementById(`${e}.cors`).addEventListener("change", () => {
     saveOptions();
   });
 });
