@@ -1,8 +1,9 @@
-import { State } from "./runner";
+import { State, InputState } from "./runner";
 
 export interface Webhook {
   url: string;
   method?: string;
+  cors: boolean;
 }
 
 export const PLACEHOLDER_WEBHOOK = { url: "" };
@@ -15,6 +16,10 @@ export const interpolate = (url: string, state: State) => {
 
 export function renderBody(state: State): string {
   return JSON.stringify(state);
+}
+
+export function renderUrlEncoded(state: State): string {
+  return Object.entries(state.input).map((k, i) => `${k[0]}=${k[1]}`).join('&')
 }
 
 export function send(state: State, webhook: Webhook): Promise<Response> {
@@ -33,10 +38,10 @@ export function send(state: State, webhook: Webhook): Promise<Response> {
     default:
       options = {
         method: "POST",
-        body: renderBody(state),
-        mode: "no-cors",
+        body: webhook.cors ? renderBody(state) : renderUrlEncoded(state),
+        mode: webhook.cors ? "cors" : "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": webhook.cors ? "application/json" : "application/x-www-form-urlencoded",
         },
       };
   }
