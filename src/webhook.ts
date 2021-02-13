@@ -3,6 +3,7 @@ import { State } from "./runner";
 export interface Webhook {
   url: string;
   method?: string;
+  cors: boolean;
 }
 
 export const PLACEHOLDER_WEBHOOK = { url: "" };
@@ -34,7 +35,7 @@ export function send(state: State, webhook: Webhook): Promise<Response> {
       options = {
         method: "POST",
         body: renderBody(state),
-        mode: "no-cors",
+        mode: webhook.cors ? "cors" : "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
