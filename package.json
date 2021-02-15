@@ -48,7 +48,7 @@
     "rollup-plugin-typescript2": "^0.29.0",
     "selenium-webdriver": "^4.0.0-alpha.8",
     "ts-jest": "^25.5.1",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.9"
   },
   "dependencies": {}
 }
