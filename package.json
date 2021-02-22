@@ -28,7 +28,7 @@
     "package": "zip dist/chrome-meet-webhook-extension.zip dist/*.js public/* manifest.json"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.16",
+    "@babel/preset-env": "^7.12.17",
     "@babel/runtime-corejs3": "^7.12.18",
     "@types/chrome": "0.0.130",
     "@types/jest": "^26.0.20",
