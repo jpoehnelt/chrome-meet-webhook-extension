@@ -30,7 +30,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.13.15",
     "@babel/runtime-corejs3": "^7.13.17",
-    "@types/chrome": "0.0.135",
+    "@types/chrome": "0.0.136",
     "@types/jest": "^26.0.22",
     "@types/selenium-webdriver": "^4.0.12",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
