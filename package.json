@@ -31,7 +31,7 @@
     "@babel/preset-env": "^7.14.7",
     "@babel/runtime-corejs3": "^7.14.7",
     "@types/chrome": "0.0.146",
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^26.0.24",
     "@types/selenium-webdriver": "^4.0.14",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^3.10.1",
