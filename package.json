@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.4",
-    "@babel/runtime-corejs3": "^7.15.3",
+    "@babel/runtime-corejs3": "^7.15.4",
     "@types/chrome": "0.0.156",
     "@types/jest": "^27.0.1",
     "@types/selenium-webdriver": "^4.0.15",
