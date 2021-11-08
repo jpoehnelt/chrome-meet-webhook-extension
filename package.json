@@ -38,7 +38,7 @@
     "chromedriver": "^95.0.0",
     "core-js": "^3.19.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-jest": "^25.2.2",
+    "eslint-plugin-jest": "^25.2.4",
     "jest": "^25.5.4",
     "prettier": "^2.4.1",
     "rollup": "^2.59.0",
