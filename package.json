@@ -40,7 +40,7 @@
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^25.3.0",
     "jest": "^25.5.4",
-    "prettier": "^2.5.0",
+    "prettier": "^2.5.1",
     "rollup": "^2.60.2",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
