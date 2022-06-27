@@ -15,7 +15,7 @@
  */
 
 import { it, expect, vi, Mock } from "vitest";
-import { interpolate, send } from "./webhook";
+import { send } from "./webhook";
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
@@ -26,22 +26,10 @@ declare global {
   }
 }
 
-it("should interpolate url given state", () => {
-  const url =
-    "https://foo.bar.com?active=${input.camera === 'active' ? true : false}";
-  expect(
-    interpolate(url, {
-      id: "foo",
-      timestamp: 0,
-      input: { camera: "active", microphone: "active" },
-    })
-  ).toEqual("https://foo.bar.com?active=true");
-});
-
 it("should send POST", () => {
   global.fetch = vi.fn().mockReturnValue(Promise.resolve());
   const webhook = {
-    url: "https://foo.bar.com",
+    url: "https://example.com",
     method: "POST",
     cors: "no-cors" as const,
   };
@@ -56,7 +44,7 @@ it("should send POST", () => {
 
   expect((global.fetch as Mock).mock.calls[0]).toMatchInlineSnapshot(`
     [
-      "https://foo.bar.com",
+      "https://example.com",
       {
         "body": "{\\"id\\":\\"foo\\",\\"timestamp\\":0,\\"input\\":{\\"camera\\":\\"active\\",\\"microphone\\":\\"active\\"}}",
         "headers": {
@@ -72,7 +60,7 @@ it("should send POST", () => {
 it("should send GET", () => {
   global.fetch = vi.fn().mockReturnValue(Promise.resolve());
   const webhook = {
-    url: "https://foo.bar.com",
+    url: "https://example.com",
     method: "GET",
     cors: "no-cors" as const,
   };
@@ -87,7 +75,7 @@ it("should send GET", () => {
 
   expect((global.fetch as Mock).mock.calls[0]).toMatchInlineSnapshot(`
     [
-      "https://foo.bar.com",
+      "https://example.com",
       {
         "method": "GET",
         "mode": "no-cors",

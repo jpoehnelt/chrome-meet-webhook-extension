@@ -31,15 +31,15 @@ it("should parse method correctly", async () => {
   const config = {
     webhooks: {
       "input.change": {
-        url: "https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
+        url: "https://example.com",
         cors: "no-cors",
       },
       change: {
-        url: "POST https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
+        url: "POST https://example.com",
         cors: "no-cors",
       },
       "input.camera.active": {
-        url: "https://foo.bar.com",
+        url: "https://example.com",
         cors: "cors",
       },
     },
@@ -61,7 +61,7 @@ it("should parse method correctly", async () => {
         "change": {
           "cors": "no-cors",
           "method": "POST",
-          "url": "https://foo.bar.com?active=\${input.camera === 'active' ? true : false}",
+          "url": "https://example.com",
         },
         "input.active": {
           "cors": "no-cors",
@@ -69,7 +69,7 @@ it("should parse method correctly", async () => {
         },
         "input.camera.active": {
           "cors": "cors",
-          "url": "https://foo.bar.com",
+          "url": "https://example.com",
         },
         "input.camera.change": {
           "cors": "no-cors",
@@ -81,7 +81,7 @@ it("should parse method correctly", async () => {
         },
         "input.change": {
           "cors": "no-cors",
-          "url": "https://foo.bar.com?active=\${input.camera === 'active' ? true : false}",
+          "url": "https://example.com",
         },
         "input.inactive": {
           "cors": "no-cors",

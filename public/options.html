@@ -43,22 +43,10 @@
         The default webhook HTTP call is a <code>POST</code> having
         <code>Content-Type: application/json</code>. This can be overriden by
         prefixing the URL with the method such as
-        <code>GET https://foo.bar.com</code>
+        <code>GET https://example.com</code>
       </p>
       <p>The body of POST requests matches the following:</p>
       <pre id="payload" class="bg-dark text-light p-3"></pre>
-      <h3>Webhook URL Interpolation</h3>
-      <p>It is possible to customize the webhook url from the current state.</p>
-      <p>
-        For example,
-        <code
-          >https://foo.bar.com?active=${input.camera === 'active' ? true :
-          false}</code
-        >
-        becomes <code>https://foo.bar.com?active=true</code> if the
-        <code>input.camera</code> is <code>active</code>.
-      </p>
-      <p>The available variables match the JSON state from above.</p>
 
       <h3>Webhook Configuration</h3>
 
