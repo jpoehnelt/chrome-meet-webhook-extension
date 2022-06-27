@@ -24,20 +24,12 @@ export interface Webhook {
 
 export const PLACEHOLDER_WEBHOOK = { url: "" };
 
-export const interpolate = (url: string, state: State) => {
-  const names = Object.keys(state);
-  const vals = Object.values(state);
-  return new Function(...names, `return \`${url}\`;`)(...vals);
-};
-
 export function renderBody(state: State): string {
   return JSON.stringify(state);
 }
 
 export function send(state: State, webhook: Webhook): Promise<Response> {
   let options: RequestInit;
-
-  const url = interpolate(webhook.url, state);
 
   switch (webhook.method) {
     case "GET":
@@ -58,5 +50,5 @@ export function send(state: State, webhook: Webhook): Promise<Response> {
       };
   }
 
-  return fetch(url, options);
+  return fetch(webhook.url, options);
 }
