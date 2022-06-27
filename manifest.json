@@ -2,7 +2,7 @@
   "name": "Google Meet Webhooks",
   "version": "1.3.0",
   "description": "Trigger a webhook when the microphone or camera is turned on or off in a Google Meet.",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "content_scripts": [
     {
       "js": ["dist/index.js"],
@@ -21,5 +21,8 @@
     "48": "public/icon48.png",
     "128": "public/icon128.png"
   },
+  "host_permissions": [
+    "https://meet.google.com/"
+  ],
   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAioGnb8Kt7SxXgViDHl1Hjo60zcIlfSMEQs9rFi05VJLcrh0y2PWHKwkNTMPLGneEYoMu/mm5ADQYBDVOCmYXcOdsLGfVgYqPGG8M1YgXCXO6cpgzyKtRvSxV5E3D9iZLzeLu7uQMfzHq8fRNh2hmGNV49c//5cVUYVbB6Xv9yly4kXoBneMFmYGGU5deevdNoPRepUJz7QWK3W0MtR5hNq/lMDcLmR4YFbf2unJzBO+/VSx5zZKWYO5dSqh51mrvqfvQ2pNuDEehkCd9k+fh1DHK+FIEF2QwqALGCcpxG7nTAIlyLHkCxE3NNrM+ku9AxtgwHSti5EH+jK/fNzZh/QIDAQAB"
 }
