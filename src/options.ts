@@ -39,7 +39,9 @@ function saveOptions(): void {
   const config: Config = DEFAULT_CONFIG;
 
   EVENTS.forEach((e: string) => {
-    config.webhooks[e].url = getHtmlInputElement(e).value;
+    config.webhooks[e].url = getHtmlInputElement(`${e}.url`).value;
+    config.webhooks[e].cors = getHtmlInputElement(`${e}.cors`)
+      .value as RequestMode;
   });
 
   setConfig(config);
@@ -49,7 +51,8 @@ async function restoreOptions(): Promise<void> {
   const config = await getConfig();
 
   EVENTS.forEach((e) => {
-    getHtmlInputElement(e).value = config.webhooks[e].url;
+    getHtmlInputElement(`${e}.url`).value = config.webhooks[e].url;
+    getHtmlInputElement(`${e}.cors`).value = config.webhooks[e].cors;
   });
 }
 
@@ -59,13 +62,27 @@ EVENTS.forEach((e) => {
     "beforeend",
     `
     <div class="form-group">
-      <label for="${e}">Event: <code>${e}</code></label>
-      <input type="url" class="form-control" id="${e}" placeholder="Webhook Url">
-      <small id="${e}.help" class="form-text text-muted">${description}</small>
-
+      <div style="display:flex;gap: 20px;">
+        <div style="flex-grow:1">
+          <label for="${e}.url">Event: <code>${e}</code></label>
+          <input type="url" class="form-control" id="${e}.url" placeholder="Webhook Url">
+        </div>
+        <div style="text-align:center">
+          <label for="${e}.cors">CORS</label>
+          <select id="${e}.cors" class="form-control">
+            <option selected>no-cors</option>
+            <option>cors</option>
+          </select>
+        </div>
+      </div>
+      <small id="${e}.help" class="form-text text-muted">${description}</small>      
     </div>`
   );
-  document.getElementById(e).addEventListener("change", () => {
+  document.getElementById(`${e}.url`).addEventListener("change", () => {
+    saveOptions();
+  });
+
+  document.getElementById(`${e}.cors`).addEventListener("change", () => {
     saveOptions();
   });
 });

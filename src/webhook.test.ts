@@ -40,7 +40,11 @@ it("should interpolate url given state", () => {
 
 it("should send POST", () => {
   global.fetch = vi.fn().mockReturnValue(Promise.resolve());
-  const webhook = { url: "https://foo.bar.com", method: "POST" };
+  const webhook = {
+    url: "https://foo.bar.com",
+    method: "POST",
+    cors: "no-cors" as const,
+  };
   send(
     {
       id: "foo",
@@ -65,9 +69,13 @@ it("should send POST", () => {
   `);
 });
 
-it("should send POST", () => {
+it("should send GET", () => {
   global.fetch = vi.fn().mockReturnValue(Promise.resolve());
-  const webhook = { url: "https://foo.bar.com", method: "GET" };
+  const webhook = {
+    url: "https://foo.bar.com",
+    method: "GET",
+    cors: "no-cors" as const,
+  };
   send(
     {
       id: "foo",
