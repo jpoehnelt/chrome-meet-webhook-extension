@@ -25,7 +25,7 @@ jobs:
       - run: npm i
       - run: npm test
       - run: npm run build
-      - run: npm run package
+      - run: npm run zip
       - uses: trmcnvn/chrome-addon@v2
         with:
           extension: cjgljcadhebolmnkpfankbafljblnepj

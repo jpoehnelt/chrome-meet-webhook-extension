@@ -23,7 +23,7 @@
     "lint": "eslint src/*",
     "build": "esbuild src/index.ts src/options.ts --outdir=dist --bundle --format=iife --target=chrome75",
     "test": "vitest src/*",
-    "package": "zip dist/chrome-meet-webhook-extension.zip dist/*.js public/* manifest.json"
+    "zip": "zip dist/chrome-meet-webhook-extension.zip dist/*.js public/* manifest.json"
   },
   "devDependencies": {
     "@types/chrome": "0.0.191",
