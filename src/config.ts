@@ -46,7 +46,9 @@ export const EVENTS = [
 ];
 
 export const DEFAULT_CONFIG = {
-  webhooks: Object.fromEntries(EVENTS.map((e) => [e, { url: "", cors: false }])),
+  webhooks: Object.fromEntries(
+    EVENTS.map((e) => [e, { url: "", cors: "no-cors" }])
+  ),
 } as Config;
 
 export interface Config {

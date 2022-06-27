@@ -19,7 +19,7 @@ import { State } from "./runner";
 export interface Webhook {
   url: string;
   method?: string;
-  cors: boolean;
+  cors: RequestMode;
 }
 
 export const PLACEHOLDER_WEBHOOK = { url: "" };
@@ -43,7 +43,7 @@ export function send(state: State, webhook: Webhook): Promise<Response> {
     case "GET":
       options = {
         method: "GET",
-        mode: "no-cors",
+        mode: webhook.cors,
       };
       break;
     case "POST":
@@ -51,7 +51,7 @@ export function send(state: State, webhook: Webhook): Promise<Response> {
       options = {
         method: "POST",
         body: renderBody(state),
-        mode: webhook.cors ? "cors" : "no-cors",
+        mode: webhook.cors,
         headers: {
           "Content-Type": "application/json",
         },

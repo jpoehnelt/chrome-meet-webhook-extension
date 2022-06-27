@@ -32,11 +32,16 @@ it("should parse method correctly", async () => {
     webhooks: {
       "input.change": {
         url: "https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
+        cors: "no-cors",
       },
       change: {
         url: "POST https://foo.bar.com?active=${input.camera === 'active' ? true : false}",
+        cors: "no-cors",
       },
-      "input.camera.active": { url: "https://foo.bar.com" },
+      "input.camera.active": {
+        url: "https://foo.bar.com",
+        cors: "cors",
+      },
     },
   } as Partial<Config>;
 
@@ -54,34 +59,44 @@ it("should parse method correctly", async () => {
     {
       "webhooks": {
         "change": {
+          "cors": "no-cors",
           "method": "POST",
           "url": "https://foo.bar.com?active=\${input.camera === 'active' ? true : false}",
         },
         "input.active": {
+          "cors": "no-cors",
           "url": "",
         },
         "input.camera.active": {
+          "cors": "cors",
           "url": "https://foo.bar.com",
         },
         "input.camera.change": {
+          "cors": "no-cors",
           "url": "",
         },
         "input.camera.inactive": {
+          "cors": "no-cors",
           "url": "",
         },
         "input.change": {
+          "cors": "no-cors",
           "url": "https://foo.bar.com?active=\${input.camera === 'active' ? true : false}",
         },
         "input.inactive": {
+          "cors": "no-cors",
           "url": "",
         },
         "input.microphone.active": {
+          "cors": "no-cors",
           "url": "",
         },
         "input.microphone.change": {
+          "cors": "no-cors",
           "url": "",
         },
         "input.microphone.inactive": {
+          "cors": "no-cors",
           "url": "",
         },
       },
