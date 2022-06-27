@@ -2,7 +2,8 @@
 
 ![Build](https://github.com/jpoehnelt/chrome-meet-webhook-extension/workflows/Build/badge.svg)
 ![Release](https://github.com/jpoehnelt/chrome-meet-webhook-extension/workflows/Release/badge.svg)
-[![codecov](https://codecov.io/gh/jpoehnelt/chrome-meet-webhook-extension/branch/master/graph/badge.svg)](https://codecov.io/gh/jpoehnelt/chrome-meet-webhook-extension)
+
+> **Note:** This extension is not an official Google product.
 
 ## Description
 

@@ -1,11 +1,17 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
-    "outDir": "./dist",
-    "sourceMap": false,
     "esModuleInterop": true,
-    "lib": ["DOM", "ESNext"],
-    "target": "ES6"
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "sourceMap": false,
+    "target": "ESNext"
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts"
+  ]
 }
