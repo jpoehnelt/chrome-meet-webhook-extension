@@ -11,6 +11,7 @@ plugins:
           to: "\"version\": \"${nextRelease.version}\""
   - - "@semantic-release/exec"
     - prepareCmd: 'npm run zip'
+    - publishCmd: 'npx chrome-webstore-upload-cli@1.0.0 upload --extension-id lhkkhfmbgiaaagbeoblnjiklilmaeddj --source dist/chrome-meet-webhook-extension.zip'
   - - "@semantic-release/git"
     - assets:
       - "manifest.json"
