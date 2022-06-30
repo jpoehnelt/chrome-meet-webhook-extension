@@ -21,16 +21,19 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    env:
+      EXTENSION_ID: lhkkhfmbgiaaagbeoblnjiklilmaeddj
+      SOURCE: dist/chrome-meet-webhook-extension.zip
+      CLIENT_ID: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
+      CLIENT_SECRET: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
+      REFRESH_TOKEN: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - run: npm i
       - run: npm test
       - run: npm run build
       - run: npm run zip
-      - uses: trmcnvn/chrome-addon@3431bca72e30167ac2c2266100b8198615ef37e3
-        with:
-          extension: lhkkhfmbgiaaagbeoblnjiklilmaeddj
-          zip: dist/chrome-meet-webhook-extension.zip
-          client-id: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
-          client-secret: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
-          refresh-token: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
+      - name: upload
+        run: npx chrome-webstore-upload@1.0.0 upload --extension-id $EXTENSION_ID --source $SOURCE
+      - name: publish
+        run: npx chrome-webstore-upload@1.0.0 publish --extension-id $EXTENSION_ID
