@@ -14,9 +14,8 @@
 
 name: Publish
 on:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+  release:
+    types: [published]
   workflow_dispatch:
 jobs:
   publish:
@@ -33,7 +32,5 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run zip
-      - name: upload
+      - name: upload and publish
         run: npx chrome-webstore-upload-cli@1.0.0 upload --extension-id $EXTENSION_ID --source $SOURCE
-      - name: publish
-        run: npx chrome-webstore-upload-cli@1.0.0 publish --extension-id $EXTENSION_ID
