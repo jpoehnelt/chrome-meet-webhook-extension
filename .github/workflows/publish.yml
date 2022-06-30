@@ -17,8 +17,9 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,9 +27,9 @@ jobs:
       - run: npm test
       - run: npm run build
       - run: npm run zip
-      - uses: trmcnvn/chrome-addon@v2
+      - uses: trmcnvn/chrome-addon@3431bca72e30167ac2c2266100b8198615ef37e3
         with:
-          extension: cjgljcadhebolmnkpfankbafljblnepj
+          extension: lhkkhfmbgiaaagbeoblnjiklilmaeddj
           zip: dist/chrome-meet-webhook-extension.zip
           client-id: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
           client-secret: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
