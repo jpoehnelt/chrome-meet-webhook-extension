@@ -34,6 +34,6 @@ jobs:
       - run: npm run build
       - run: npm run zip
       - name: upload
-        run: npx chrome-webstore-upload@1.0.0 upload --extension-id $EXTENSION_ID --source $SOURCE
+        run: npx chrome-webstore-upload-cli@1.0.0 upload --extension-id $EXTENSION_ID --source $SOURCE
       - name: publish
-        run: npx chrome-webstore-upload@1.0.0 publish --extension-id $EXTENSION_ID
+        run: npx chrome-webstore-upload-cli@1.0.0 publish --extension-id $EXTENSION_ID
