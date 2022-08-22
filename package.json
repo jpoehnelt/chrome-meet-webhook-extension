@@ -29,7 +29,7 @@
     "@types/chrome": "0.0.195",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.34.0",
-    "esbuild": "^0.14.54",
+    "esbuild": "^0.15.5",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
