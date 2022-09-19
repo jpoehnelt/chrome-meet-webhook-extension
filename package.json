@@ -26,7 +26,7 @@
     "zip": "zip dist/chrome-meet-webhook-extension.zip dist/*.js public/* manifest.json"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.196",
+    "@types/chrome": "0.0.197",
     "@typescript-eslint/eslint-plugin": "^5.38.0",
     "@typescript-eslint/parser": "^5.37.0",
     "esbuild": "^0.15.8",
